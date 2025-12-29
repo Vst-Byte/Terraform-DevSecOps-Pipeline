@@ -1,0 +1,15 @@
+name: Pipeline DevSecOps
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tfsec-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v3
+
+      - name: Rodar Scan de Segurança (Tfsec)
+        uses: aquasecurity/tfsec-action@v1.0.0
