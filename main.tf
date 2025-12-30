@@ -11,5 +11,5 @@ resource "aws_s3_bucket" "meu_balde_secreto" {
 
   # 🛑 O ERRO ESTÁ AQUI EMBAIXO!
   # "public-read" deixa qualquer pessoa na internet ler seus arquivos.
-  acl    = "public-read"
+  acl    = "private"
 }
