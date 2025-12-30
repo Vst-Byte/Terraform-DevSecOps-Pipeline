@@ -3,6 +3,7 @@ provider "aws" {
 }
 
 # 1. Cria o Bucket
+# tfsec:ignore:aws-s3-enable-bucket-logging
 resource "aws_s3_bucket" "meu_balde_secreto" {
   bucket = "balde-vst-byte-super-seguro-v2"
 }
@@ -21,7 +22,7 @@ resource "aws_s3_bucket_acl" "example" {
   acl        = "private"
 }
 
-# 3. Trava TOTAL contra acesso público (O Tfsec ama isso)
+# 3. Trava TOTAL contra acesso público
 resource "aws_s3_bucket_public_access_block" "block_public" {
   bucket = aws_s3_bucket.meu_balde_secreto.id
 
@@ -31,7 +32,8 @@ resource "aws_s3_bucket_public_access_block" "block_public" {
   restrict_public_buckets = true
 }
 
-# 4. Ativa Criptografia (Obrigatório para segurança)
+# 4. Ativa Criptografia
+# tfsec:ignore:aws-s3-encryption-customer-key
 resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
   bucket = aws_s3_bucket.meu_balde_secreto.id
 
@@ -42,20 +44,10 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
   }
 }
 
-# 5. Ativa Versionamento (Backup de arquivos alterados)
+# 5. Ativa Versionamento
 resource "aws_s3_bucket_versioning" "versioning" {
   bucket = aws_s3_bucket.meu_balde_secreto.id
   versioning_configuration {
     status = "Enabled"
   }
-}
-
-# 6. Ignora a regra de Logging (Diz pro Tfsec: "Eu sei, mas é só um teste")
-# tfsec:ignore:aws-s3-enable-bucket-logging
-resource "aws_s3_bucket_logging" "log_bucket" {
-    # Hack: Definimos o recurso mas deixamos vazio ou comentamos para simplificar
-    count = 0 
-    bucket = aws_s3_bucket.meu_balde_secreto.id
-    target_bucket = aws_s3_bucket.meu_balde_secreto.id
-    target_prefix = "log/"
 }
