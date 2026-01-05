@@ -26,3 +26,4 @@ Este repositório implementa um pipeline que audita e bloqueia automaticamente c
 - [x] Gestão de falsos positivos via comentários de código.
 
 
+```
