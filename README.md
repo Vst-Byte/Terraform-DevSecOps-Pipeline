@@ -60,5 +60,7 @@ No inputs.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_nome_do_bucket"></a> [nome\_do\_bucket](#output\_nome\_do\_bucket) | balde-vst-byte-super-seguro-v2 |
 <!-- END_TF_DOCS -->
