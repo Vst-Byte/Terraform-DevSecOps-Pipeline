@@ -62,5 +62,5 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_nome_do_bucket"></a> [nome\_do\_bucket](#output\_nome\_do\_bucket) | balde-vst-byte-super-seguro-v2 |
+| <a name="output_balde-vst-byte-super-seguro-v2"></a> [balde-vst-byte-super-seguro-v2](#output\_balde-vst-byte-super-seguro-v2) | balde-vst-byte-super-seguro-v2 |
 <!-- END_TF_DOCS -->
