@@ -24,3 +24,5 @@ Este repositório implementa um pipeline que audita e bloqueia automaticamente c
 - [x] Enforce de Criptografia (AES-256).
 - [x] Versionamento de arquivos ativado.
 - [x] Gestão de falsos positivos via comentários de código.
+
+
